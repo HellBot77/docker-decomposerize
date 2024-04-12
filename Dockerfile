@@ -15,7 +15,6 @@ RUN cd packages/decomposerize-website && \
     export NODE_ENV=production && \
     yarn build
 
-FROM pierrezemb/gostatic
+FROM lipanski/docker-static-website
 
-COPY --from=build /decomposerize/packages/decomposerize-website/build /srv/http
-EXPOSE 8043
+COPY --from=build /decomposerize/packages/decomposerize-website/build .
